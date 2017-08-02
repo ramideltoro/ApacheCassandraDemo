@@ -27,6 +27,8 @@ public class App implements CommandLineRunner
         // save a couple of customers
         this.repository.save(new CustomerVO(UUIDs.timeBased(), "Alice", "Smith"));
         this.repository.save(new CustomerVO(UUIDs.timeBased(), "Bob", "Smith"));
+        this.repository.save(new CustomerVO(UUIDs.timeBased(), "Rami", "Stefanidis"));
+
 
         // fetch all customers
         System.out.println("Customers found with findAll():");
@@ -40,6 +42,12 @@ public class App implements CommandLineRunner
         System.out.println("Customer found with findByFirstName('Alice'):");
         System.out.println("--------------------------------");
         System.out.println(this.repository.findByFirstName("Alice"));
+
+        // fetch an individual customer
+        System.out.println("Customer found with findbyFirstAndLastName(\"Rami\",\"Stefanidis\"):");
+        System.out.println("--------------------------------");
+        System.out.println(this.repository.findbyFirstAndLastName("Rami","Stefanidis"));
+
 
         System.out.println("Customers found with findByLastName('Smith'):");
         System.out.println("--------------------------------");

@@ -11,11 +11,15 @@ import java.util.List;
  */
 public interface CustomerRepository extends CrudRepository<CustomerVO,String> {
 
+
     @Query("Select * from customer where firstname=?0")
     public CustomerVO findByFirstName(String firstName);
 
     @Query("Select * from customer where lastname=?0")
     public List<CustomerVO> findByLastName(String lastName);
+
+    @Query("Select * from customer where firstname=?0 and lastname=?1")
+    public CustomerVO findbyFirstAndLastName(String firstName, String lastName);
 
 
 

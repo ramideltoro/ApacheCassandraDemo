@@ -12,6 +12,7 @@ import java.util.UUID;
 @Table("customer")
 public class CustomerVO {
 
+
     @PrimaryKey
     private UUID id;
 

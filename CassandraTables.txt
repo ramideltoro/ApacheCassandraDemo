@@ -1,0 +1,1 @@
+CREATE TABLE mykeyspace.customer (id TimeUUID PRIMARY KEY, firstname text, lastname text);
