@@ -1,1 +1,12 @@
+CREATE KEYSPACE IF NOT EXISTS mykeyspace WITH replication = {'class': 'SimpleStrategy', 'replication_factor': '1'}  AND durable_writes = true;
+
+
 CREATE TABLE mykeyspace.customer (id TimeUUID PRIMARY KEY, firstname text, lastname text);
+
+CREATE INDEX customerfistnameindex ON mykeyspace.customer (firstname);
+CREATE INDEX customersecondnameindex ON mykeyspace.customer (lastname);
+
+CREATE MATERIALIZED VIEW mykeyspace.customerMaterialized AS
+       SELECT * FROM mykeyspace.customer
+       WHERE firstname IS NOT NULL AND lastname IS NOT NULL
+       PRIMARY KEY (id);
