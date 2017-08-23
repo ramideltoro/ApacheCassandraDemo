@@ -14,6 +14,8 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spring.parent.version>1.5.4.RELEASE</spring.parent.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
 
   <parent>
@@ -36,6 +38,8 @@
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-data-cassandra</artifactId>
     </dependency>
+
+    <!--   mybatis starter -->
 
     <dependency>
       <groupId>org.slf4j</groupId>

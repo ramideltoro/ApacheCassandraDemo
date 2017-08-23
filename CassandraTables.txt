@@ -10,3 +10,12 @@ CREATE MATERIALIZED VIEW mykeyspace.customerMaterialized AS
        SELECT * FROM mykeyspace.customer
        WHERE firstname IS NOT NULL AND lastname IS NOT NULL
        PRIMARY KEY (id);
+
+=========================
+
+CREATE KEYSPACE IF NOT EXISTS myNewkeyspace WITH replication = {'class': 'NetworkTopologyStrategy', 'nyc': 2}  AND durable_writes = true;
+
+CREATE TABLE myNewkeyspace.customer (id TimeUUID PRIMARY KEY, firstname text, lastname text);
+
+CREATE INDEX customerfistnameindex ON myNewkeyspace.customer (firstname);
+CREATE INDEX customersecondnameindex ON myNewkeyspace.customer (lastname);

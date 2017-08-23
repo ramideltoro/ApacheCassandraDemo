@@ -1,7 +1,30 @@
 spring:
   data:
     cassandra:
-      keyspace-name: mykeyspace
+      #cluster-name: nyc
+      keyspace-name: myNewkeyspace
       port: 9042
-      contact-points: ec2-52-206-216-65.compute-1.amazonaws.com
+      #contact-points: ec2-52-206-216-65.compute-1.amazonaws.com
+      #contact-points: ec2-52-91-58-170.compute-1.amazonaws.com #Error creating pool to /172.31.7.196:9042
+      #contact-points: ec2-52-206-216-65.compute-1.amazonaws.com # Error creating pool to /172.31.11.124:9042
+      contact-points: ec2-34-228-41-218.compute-1.amazonaws.com,ec2-34-229-206-19.compute-1.amazonaws.com
+      consistency-level: local_one
+      username: blackbird
+      password: blackbird
+#      ssl: true
 
+ssl:
+  keystore:
+    keystoreLocation: /rami.jks
+    keystorePassword: myKeyPass
+  trustStore:
+    trustStoreLocation: /rami-truststore.jks
+    trustStorePassword: truststorePass
+  cipherSuite: TLS_RSA_WITH_AES_256_CBC_SHA
+
+
+
+
+#mybatis:
+  #typeAliasesPackage: com.rami.mybatismappers
+ # mapperLocations: classpath*:**/mappers/*.xml
